@@ -22,7 +22,16 @@ public class OperatorPractice2 {
 		int inputNuber = sc.nextInt();
 		
 		System.out.print("성별 : ");
-		String intputname = sc.next();
+		String inputname = sc.next();
+		
+		System.out.print("성적 :");
+		Double inputresult = sc.nextDouble();
+		
+		System.out.printf("%s님은 %d학년, %d반, %d번호, %s남학생, 성적은 %.2f 입니다.", 
+				inputName, inputGrade, inputClass, inputNuber, inputname, inputresult);
+		
+
+				
 		
 		
 		
