@@ -28,6 +28,7 @@ public class ScannerEx {
 		
 		
 		
+		//주주주주저장용
 		
 		
 	}
