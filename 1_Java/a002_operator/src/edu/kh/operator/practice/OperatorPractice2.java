@@ -10,10 +10,10 @@ public class OperatorPractice2 {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("이름 : ");
-		String inputName = sc.next();
+		String inputName = sc.next(); //String 단어
 		
 		System.out.print("학년 : ");
-		int inputGrade = sc.nextInt();
+		int inputGrade = sc.nextInt();// 숫자
 		
 		System.out.print("반 : ");
 		int inputClass = sc.nextInt();

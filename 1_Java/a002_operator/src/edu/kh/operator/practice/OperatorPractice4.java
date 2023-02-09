@@ -16,10 +16,11 @@ public class OperatorPractice4 {
 		System.out.print("수학:");
 		int math = sc.nextInt();
 		int sum = korean + english + math;
-		double avg = sum / 3;
-		System.out.printf("합계 : %d\n", sum);
-		System.out.printf("합계 : %.1f\n", avg);
-		String result = (korean >= 40 && english >= 40 && math >= 40) && (avg>=60)? "합격" : "불합격";
+		double avg = sum / 3.0; //double ->실수를 만들어주기위함 자동 형변환
+		//값처리 방식
+		System.out.println("합계 : " + sum);
+		System.out.println("평균 : " + avg);
+		String result = (korean >= 40 && english >= 40 && math >= 40 && avg>=60)? "합격" : "불합격";
 		System.out.println(result);
 		
 		
