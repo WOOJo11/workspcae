@@ -28,6 +28,14 @@ public class ForRun {
 		case 12 : fx.ex12(); break; // 응용
 		case 13 : fx.ex13(); break; // 응용
 		case 14 : fx.ex14(); break; // 응용
+		case 15 : fx.ex15(); break; // 중첩반복분
+		case 16 : fx.ex16(); break; // 중첩반복분
+		case 17 : fx.ex17(); break; // 중첩반복분 응용
+		case 18 : fx.ex18(); break; // 중첩반복분 응용
+		case 19 : fx.ex19(); break; // 중첩반복분 응용
+		case 20 : fx.ex20(); break; // 중첩반복분 응용
+		case 21 : fx.ex21(); break; // 중첩반복분 응용
+		case 22 : fx.ex22(); break; // 중첩반복분 응용
 		
 		default : System.out.println("존재하지 않는 예시 번호 입니다");
 		
