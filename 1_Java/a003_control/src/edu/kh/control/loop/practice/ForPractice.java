@@ -98,6 +98,21 @@ public class ForPractice {
 		
 	}
 	
+	public void practice5() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("숫자 : ");
+		int num = nextInt();
+		
+		for(int i=1; i<=9; i++) {
+			if(i --1) {
+				System.out.println
+				(======"num"=====);
+			}
+		}
+			
+		
+	}
+	
 	
 	
 	
