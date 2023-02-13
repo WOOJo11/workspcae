@@ -203,7 +203,7 @@ public class ForPractice {
 	public void practice10() {
 		 {
 			    System.out.println("Your number: ");
-			    Scanner scn = new Scanner(System.in);
+			    Scanner sc = new Scanner(System.in);
 			    int intX = sc.nextInt();
 
 			    for(int row = 0; row < intX; row++)
@@ -226,6 +226,7 @@ public class ForPractice {
 			    }
 	}
 	
+		 
 	
 	
 }
