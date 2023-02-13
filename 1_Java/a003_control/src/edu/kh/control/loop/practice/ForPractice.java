@@ -107,7 +107,7 @@ public class ForPractice {
 	        {
 	            if(i == 1)
 	            {
-	                //System.out.println("===== 4dan=====");
+	               
 	                System.out.println("===== " + intX + " =====");
 	            }
 	            
@@ -162,7 +162,7 @@ public class ForPractice {
 	
 	public void practice8() {
 		System.out.println("Your number: ");
-	      Scanner scn = new Scanner(System.in);
+	      Scanner sc = new Scanner(System.in);
 	      int intX = sc.nextInt();
 
 	      
@@ -226,7 +226,32 @@ public class ForPractice {
 			    }
 	}
 	
+	
 		 
+	 }
+	public void practice11() {
+		System.out.print("정수입력: ");
+		Scanner sc = new Scanner(System.in);
+		int input = sc.nextInt();
+		
+		for(int row=1; row<=input; row ++) {
+		//빈칸먼저 출력
+			for(int col=input-row; col>=1 ; col--) {
+				System.out.print(" ");
+			}
+			for(int col=1; col<=row * 2 -1 ; col++) {
+				System.out.print("*");
+			}
+				System.out.println();
+			
+		
+					
+				}
+			
+		
+		
+	}
+	
 	
 	
 }
@@ -235,7 +260,7 @@ public class ForPractice {
 	
 	
 		
-}
+
 		
 	
 		
