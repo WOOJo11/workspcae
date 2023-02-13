@@ -97,15 +97,144 @@ public class ForPractice {
 		
 		
 	}
+	public void practice5() {
+		 
+		System.out.println("Your number: ");
+	        Scanner sc = new Scanner(System.in);
+	        int intX = sc.nextInt();
+	     
+	        for(int i = 1; i <= 9; i++)
+	        {
+	            if(i == 1)
+	            {
+	                //System.out.println("===== 4dan=====");
+	                System.out.println("===== " + intX + " =====");
+	            }
+	            
+	            int multipliedVal = intX * i;
+	            System.out.println(intX + " * " + i + " = " + multipliedVal);
+	        }
+		
+		
+	}
 	
+	public void practice6() {
+		System.out.println("Your number: ");
+        Scanner sc = new Scanner(System.in);
+        int intX = sc.nextInt();
+    
+        if(intX >= 2 && intX <= 9)
+        {
+          for(int i = intX; i <= 9; i++)
+          {
+            System.out.println("===== " + i + " =====");
+            
+            for(int a = 1; a <= 9; a++)
+            {
+              int multipliedVal = i * a;
+              System.out.println(i + " * " + a + " = " + multipliedVal);
+            }
+          }
+        }
+        else
+        {
+            System.out.println("Only from 2 and 9");
+        }
+	}
 	
+	public void practice7() {
+		  System.out.println("Your number: ");
+	      Scanner sc = new Scanner(System.in);
+	      int intX = sc.nextInt();
+
+	      for(int i = 1; i <= intX; ++i)
+	      {
+	        for(int a = 1; a <= i; ++a)
+	        {
+	           System.out.print("*");
+
+	           
+	        }
+
+	         System.out.println("");
+	      }
+	}
+	
+	public void practice8() {
+		System.out.println("Your number: ");
+	      Scanner scn = new Scanner(System.in);
+	      int intX = sc.nextInt();
+
+	      
+	      for(int i = intX; i >= 1; i--)
+	      {
+	        
+	        for(int a = 1; a <= i; a++)
+	        {
+	           System.out.print("*");
+	        }
+
+	         System.out.println("");
+	      }
+	}
+	public void practice9() {
+		 System.out.println("Your number: ");
+	      Scanner sc = new Scanner(System.in);
+	      int intX = sc.nextInt();
+
+	    //Coloumn
+	    for(int i = 1; i <= intX; i++)
+	    {
+	      //spacing
+	      for(int a = 1; a <= intX-i; a++)
+	      {
+	        System.out.print(" ");
+	      }
+
+	      //Row
+	      for(int b = 1; b <= i; b++)
+	      {
+	        System.out.print("*");
+	      }
+
+	      System.out.println("");
+	    }
+	}
+	public void practice10() {
+		 {
+			    System.out.println("Your number: ");
+			    Scanner scn = new Scanner(System.in);
+			    int intX = sc.nextInt();
+
+			    for(int row = 0; row < intX; row++)
+			    {
+			      for(int star = 0; star <= row; star++)
+			        System.out.print("*");
+
+			      System.out.println("");
+
+			      if(row == (intX-1))
+			      {
+			        for(int b = row-1; b >= 0; b--)
+			        {
+			          for(int star = 0; star <= b; star++)
+			            System.out.print("*");
+			      
+			          System.out.println("");
+			        }
+			      }
+			    }
+	}
 	
 	
 	
 }
 		
+	
+	
+	
 		
-		
+}
 		
 	
 		
