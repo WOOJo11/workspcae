@@ -29,7 +29,7 @@ public class ConditionEx {
 		System.out.println("양수 입니다.");
 		}
 		
-		if(input < 0 ) {
+		if(input < 0  ) {
 			System.out.println("음수 입니다.");
 			System.out.println("ex1() 끝!");
 		}

@@ -54,15 +54,15 @@ public class OperatorEx2 {
 				int num5 = 100;
 				int num6 = 200;
 				
-				System.out.println( num5 == num6);
-				System.out.println( num5 != num6);
-				System.out.println( num5 > num6);
-				System.out.println( num5 < num6);
+				System.out.println( num5 == num6);//false
+				System.out.println( num5 != num6);//true
+				System.out.println( num5 > num6);//false
+				System.out.println( num5 < num6);//true
 				
-				System.out.println(num5 >= num6 - num5 );
+				System.out.println(num5 >= num6 - num5 );//true
 				
-				System.out.println(num6 <= num5 + num5 + num5 );
-			 
+				System.out.println(num6 <= num5 + num5 + num5); //false
+			
 				
 	
 	}

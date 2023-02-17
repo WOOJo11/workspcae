@@ -12,8 +12,8 @@ public class ArrayRun1 {
 		//ae1.ex4();
 		//ae1.ex5();
 		//ae1.ex6();
-		//ae1.ex7();
-		ae1.ex8();
+		ae1.ex7();
+		//ae1.ex8();
 		
 		
 		
