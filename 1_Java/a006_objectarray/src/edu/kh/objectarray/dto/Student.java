@@ -54,21 +54,19 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getKor(int kor) {
+	public int getKor() {
 		return kor;
 	}
-	
-	
 	public void setKor(int kor) {
 		this.kor = kor;
 	}
-	public int getEng(int eng) {
+	public int getEng() {
 		return eng;
 	}
 	public void setEng(int eng) {
 		this.eng = eng;
 	}
-	public int getMath(int math) {
+	public int getMath() {
 		return math;
 	}
 	public void setMath(int math) {
