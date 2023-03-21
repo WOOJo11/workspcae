@@ -118,6 +118,12 @@ public class EmployeeService {
 
 
 
+	/** 급여 입력 범위 내 사원 정보 조회
+	 * @param input1
+	 * @param input2
+	 * @return
+	 * @throws SQLException
+	 */
 	public List<Employee> selectSalary(int input1, int input2) throws SQLException {
 		
 		Connection conn = getConnection();
@@ -128,6 +134,81 @@ public class EmployeeService {
 		return empList;
 	}
 
+
+
+
+
+	public int insertEmployee(Employee emp)throws SQLException {
+		
+		// 1. 커넥션 생성
+		Connection conn = getConnection();
+		// 2. DAO 메서드 호출후 결과 반환 받기
+		int result = dao.insertEmployee(conn,emp);
+		
+		// DAO 에서 DML (INSERT) 수행
+		// 바로 저장이 아닌 트랜잭션에 임시 저장
+		// 수행 결과에 따라 commit을 할것인지 rollback을 할것인지 지정
+		
+		// 3. 트랜잭션 제어처리
+		if(result > 0) // 삽입 성공 시
+		commit(conn);
+		else rollback(conn); //  삽입 실패시
+			
+		// 4. 커넥션 반환
+		close(conn);
+		// 5. 결과 반환
+		return result;
+	}
+
+
+
+
+
+	public int updateEmployee(Employee emp) throws SQLException{
+		// 1. 커넥션 생성
+		Connection conn = getConnection();
+		
+		// 2. DAO메서드 호출 후 결과 반환 받기
+		int result = dao.updateEmployee(conn,emp);
+		
+		// 3. 트랜잭션 제어처리
+		if(result >0 )// 삽입 성공시
+			commit(conn);
+		else rollback(conn); // 삽입 실패시
+		
+		// 4. 커넥션 반환
+		close(conn);
+		
+		return result;
+	}
+
+
+
+
+
+	public int retireEmployee(int input) throws SQLException{
+		// 1. 커넥션 생성
+		Connection conn = getConnection();
+		
+		// 2.  DAO메서드 호출 후 결과 반환 받기
+		int result = dao.retireEmployee(conn,input);
+		
+		// 3. 트랜잭션 제어처리
+				if(result >0 )// 삽입 성공시
+					commit(conn);
+				else rollback(conn); // 삽입 실패시
+				
+				// 4. 커넥션 반환
+				close(conn);
+		
+		return result;
+	}
+
+
+
+
+
+	
 
 
 
