@@ -401,7 +401,7 @@ while(rs.next()) {
 			
 		}finally {
 			// 4. JDBC 객체 자원 반환
-			close(stmt);
+			close(pstmt);
 		}
 		
 		// 5. 결과 반환
