@@ -44,6 +44,17 @@ public class Emp {
 
 
 
+	public Emp(int empId, String empName,  String departmentTitle ,Date hireDate) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.departmentTitle = departmentTitle;
+		this.hireDate = hireDate;
+	}
+
+
+
+
 	public Emp(int empId, String empName, String email, String phone, int salary,  String entYN,
 			String departmentTitle,Date hireDate, String jobName) {
 		super();

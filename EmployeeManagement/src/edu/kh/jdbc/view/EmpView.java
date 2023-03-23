@@ -1,12 +1,14 @@
 package edu.kh.jdbc.view;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import edu.kh.jdbc.model.dto.Emp;
-
 import edu.kh.jdbc.model.service.EmpService;
 
 public class EmpView {
@@ -109,7 +111,7 @@ public class EmpView {
 				case 6: deleteEmp(); break;
 				case 7: empRetire(); break;
 				case 8: recentHire(); break;
-				case 9:  break;
+				case 9: selectDepartment(); break;
 				case 0: System.out.println("\n[프로그램을 종료합니다...]\n"); break;
 				
 				default: System.out.println("\n[메뉴에 존재하는 번호를 입력하세요.]\n");
@@ -157,6 +159,9 @@ public class EmpView {
 			e.printStackTrace();
 		}
 	}
+	/**
+	 *  퇴직한 사원 전체 조회
+	 */
 	private void selectRetire() {
 		// 현재 퇴직한 사원의
 		// 사번, 이름, 전화번호, 이메일, 퇴사일을
@@ -186,6 +191,9 @@ public class EmpView {
 		
 	}
 	
+	/**
+	 *  사번을 입력하여 일치하는 사원 정보 조회 
+	 */
 	private void selectOne() {
 		// 사번을 입력 받아 일치하는 사원의  
 		// 사번, 이름, 부서명, 직급명, 급여, 전화번호, 이메일, 입사일, 퇴직여부 조회
@@ -271,6 +279,9 @@ public class EmpView {
 	    
 	}
 	
+	/** 직원 정보 수정 
+	 * 
+	 */
 	private void updateEmp() {
 		// 이메일, 전화번호, 급여, 보너스 수정
 		// 단, 사번이 일치하는 사원이 없으면
@@ -279,26 +290,44 @@ public class EmpView {
 System.out.println("\n----- 사번으로 사원 정보 수정 -----\n");
 		
 		System.out.print("수정할 사원의 사번을 입력하세요 : ");
-		int empId = sc.nextInt();
-		
-		System.out.print("이메일 : ");
-		String email = sc.next();
-		
-		System.out.print("전화번호 : ");
-		String phone = sc.next();
-		
-		System.out.print("급여 : ");
-		int salary = sc.nextInt();
+		int input = sc.nextInt();
 		sc.nextLine();
 		
-		Emp em = new Emp();
-		em.setEmpId(empId);
-		em.setEmail(email);
-		em.setPhone(phone);
-		em.setSalary(salary);
+		// 수정될 정보를 입력받기
+		// 해당 사번을 가진 사원이 존재하는지 확인
+		// -> 3번. 사번으로 사원 조회 서비스를 이용해서 확인
 		
 		try {
+			Emp em = service.selectOne(input);
+			if(em == null) {
+				System.out.println("일치하는 사원이 없습니다");
+				return;
+			}
+
+			System.out.print("이메일 : ");
+			String email = sc.next();
+			
+			System.out.print("전화번호 : ");
+			String phone = sc.next();
+			
+			System.out.print("급여 : ");
+			int salary = sc.nextInt();
+			sc.nextLine();
+			
+			System.out.println("보너스 : ");
+			Double bonus = sc.nextDouble();
+			
+			// 입력 받은 정보를 객체에 담아서 서비스 전달
+			em = new Emp();
+			
+			em.setEmpId(input);
+			em.setEmail(email);
+			em.setPhone(phone);
+			em.setSalary(salary);
+			em.setBonus(bonus);
+			
 			int result = service.updateEmp(em);
+			
 			if(result >0) {
 				System.out.println("수정이 완료되었습니다");
 			}else {
@@ -306,11 +335,11 @@ System.out.println("\n----- 사번으로 사원 정보 수정 -----\n");
 			}
 			
 			
-		} catch (SQLException e) {
-		System.out.println("수정 중 예외가 발생 ");
+		} catch (Exception e) {
+			System.out.println("수정 중 예외가 발생 ");
 			e.printStackTrace();
 		}
-		
+	
 		
 	}
 	
@@ -365,33 +394,52 @@ System.out.println("\n----- 사번으로 사원 정보 수정 -----\n");
 		System.out.print("퇴사 처리할 사원의 사번 입력 : " );
 		int input = sc.nextInt();
 		
-		System.out.print("정말 퇴사 처리 하시겠습니까? (Y / N) : ");
-		char check = sc.next().toUpperCase().charAt(0);
-		
-		if(check  == 'N') {
-			System.out.println("[취소 되었습니다]");
-		return;
-		}
-		if(check  != 'Y') {
-			System.out.println("[잘못 입력 하셨습니다]");
-		return;
-		}
-		
-		try {
-			int result = service.empRetire(input);
+	  try {
+		   // 1.사번이 일치하는 사원이 있는지
+		  //    + 있어도 퇴직한 사원인지 확인하는 서비스 호출
+		  
+		  int check = service.checkEmployee(input);
+		  if(check == 0) {
+			  System.out.println("존재하지 않는 사원입니다");
+			  return;
+		  } 
+		  if(check == 1) {
+			  System.out.println("이미 퇴직처리된 사원입니다");
+			  return;
+		 }
+		  
+		  // 2. 사번이 존재하고 퇴직하지 않았으면 
+		  //    정말 퇴직 처리 할 것인지 확인 후 서비스 호출
+		  
+		 
+		  
+			System.out.print("정말 퇴사 처리 하시겠습니까? (Y / N) : ");
+			char want = sc.next().toLowerCase().charAt(0);
 			
-			if(result >0 ) {
-			 System.out.println("퇴사 처리가 완료되었습니다");
-			
-			}else {
-				System.out.println("일치하는 사번이 없습니다");
+			if(want  == 'n') {
+				System.out.println("[취소 되었습니다]");
+			return;
 			}
-			
-			
-		} catch (SQLException e) {
-			System.out.println("퇴사 처리중 예외 발생");
-			e.printStackTrace();
-		}
+			if(want  != 'y') {
+				System.out.println("[잘못 입력 하셨습니다]");
+			return;
+			}
+		  
+			int result = service.empRetire(input);
+			// 사번이 없어서 수정이 실패하는 경우는 없다
+			// 퇴직서비스는 성공 또는 예외만 존재
+			// 반환값 필요 없음 
+			if(result >0 ) {
+				 System.out.println("퇴사 처리가 완료되었습니다");}
+				
+				
+		  
+		  
+		  
+	} catch (Exception e) {
+		System.out.println("퇴사 처리중 예외 발생");
+		e.printStackTrace();
+	}
 		
 		
 	}
@@ -405,9 +453,88 @@ System.out.println("\n----- 사번으로 사원 정보 수정 -----\n");
 		
 		List<Emp> empList;
 		
-		empList = service.recentHire();
+		try {
+			empList = service.recentHire();
+			for(Emp emp : empList) {
+				System.out.printf("%d / %s / %s / %s \n",
+						emp.getEmpId(),emp.getEmpName(),emp.getDepartmentTitle(),emp.getHireDate());
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("최근 입사한 사원 조회중 예외발생");
+			e.printStackTrace();
+		}
 		
 	}
+	
+	
+	
+	/**
+	 *  부서별통계 조회
+	 */
+	private void selectDepartment() {
+		// 각 부서별
+		// 부서명, 인원 수, 급여 평균
+		// 부서코드 오름차순 조회
+		
+		// HINT.
+		// - 별도의 DTO 작성 또는 
+		//   Map(LinkedHashMap : key 순서가 유지되는 Map) 이용
+		
+		
+		System.out.println("\n----- 부서별 통계 조회 -----\n");
+	
+		
+		// DTO가 없을 때 map을 사용하는 이유
+		// 1. DTO를 작성하는게 코드 낭비인 경우
+		// 2. DTO와 map의 구조가 유사하기 때문에
+
+		// tip -> DTO의 필드를 Map의 Key라고 생각
+		
+//		Map<String, Object> map = new HashMap<>();
+//		map.put("empId",200);
+//		map.put("empName", "고길동");
+//		
+//		// 다량의 객체를 저장할때 
+//		List<Map<String,Object>> mapList;
+		
+		// 서비스 호출 
+		
+		try {
+			List<Map<String, Object>> mapList =service.selectDepartment();
+		
+			
+			// 조회 결과 출력
+			for(Map<String,Object> map : mapList) {
+//				System.out.printf("%s / %d / %d\n",
+//						map.get("deptTitle"),
+//						map.get("count"),
+//						map.get("avg"));
+				
+				Set<String> set = map.keySet();// map에서 key만 얻어와 반환
+				for(String key : set) {
+					System.out.print(map.get(key) + "  ");
+				}
+				System.out.println(); // 줄바꿈 
+			}
+			
+			
+			
+			
+		} catch (SQLException e) {
+			System.out.println("부서별 통계 조회 중 오류발생");
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
 	
 	
 	
