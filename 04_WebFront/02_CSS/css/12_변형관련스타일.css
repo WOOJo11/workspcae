@@ -1,0 +1,135 @@
+img{
+    width: 250px;
+    height: auto;
+/*  이미지는 고유한 크기와 가로/세로 비율이 존재함
+    -> width 지정 후 height를 미지정 또는 auto로 설정하면
+    기존 이미지 비율에 맞게 height가 자동 조정 */
+
+
+}
+/* css 속성은 
+    모든 브라우저에서 동일하게 처리하지 않고
+    각자의 방법으로 처리하거나, 호환되지 않는 경우가 있다
+
+    이를 대비하기 위해 각 회사별 브라우저 호환을 위한 작성 방식이 존재
+    -ms- : 익스플로러, 엣지
+    -webkit- : 크롬, 사파리
+    -o- : 오페라
+    -moz- : 파이어 폭스
+ */
+
+/*  좌우 이동 */
+.trans-x-2d:hover{
+    -ms-transform: translateX(100px);
+}
+
+
+/* 상하이동 */
+.trans-y-2d:hover{
+    transform: translateY(-100px);
+}
+
+/* 대각선 */
+.trans-d-2d:hover{
+    transform: translate(100px,-100px);
+}
+
+/* 가로방향 확대/축소 */
+.trans-x-scale-2d:hover{
+    transform: scaleX(120%);
+}
+
+/* 세로방향 확대 축소 */
+
+.trans-y-scale-2d:hover{
+
+    transform: scaleY(200%);
+    
+}
+
+
+
+/* 요소 확대 축소 */
+.trans-scale-2d{
+    transform: scale(2,2);
+    margin: 100px auto;
+}
+
+/* 요소회전 */
+.trans-rotate{
+transform: rotate(180deg);
+}
+/* 좌우반전 */
+.trans-scale-2d:hover{
+    transform: scaleX(-100%);
+}
+
+/* 3 차원 변형 */
+
+/* x y z 축 이동 */
+.trans-3d:hover{
+    /* prespective : 관점, 원근법 */
+    /* prespective (값)
+        -> 값 : z축 방향의 전체 길이 */
+    transform: perspective(300px) translate3d(100px,-100px,100px);
+}
+
+/* x축 회전 */
+.trans-rotate-x-3d:hover{
+    transform: perspective(300px) rotateX(220deg)
+}
+
+/* y축 회전 */
+.trans-rotate-y-3d:hover{
+    transform: perspective(300px) rotateY(45deg);
+}
+
+/* z축 회전 */
+.trans-rotate-z-3d:hover{
+    transform: perspective(300px) rotateZ(95deg);
+}
+
+/* x y z 회전 */
+.trans-rotate-3d:hover{
+
+    transform: perspective(300px) rotate3d(0.5,0.5,0.5,45deg)
+}
+
+
+/* transition */
+.box{
+    width: 150px;
+    height: 150px;
+    border: 1px solid red;
+    background-color: coral;
+    /* 스타일이 변형되는 기간(시간) 지정 */
+    transition-duration: 1s ;
+}
+
+.test1:hover{
+    background-color: slateblue;
+}
+.test2:hover{
+    border-radius: 50%;
+    background-color: skyblue;
+    transform: rotate(720deg);
+}
+/* https://www.w3schools.com/cssref/css3_pr_transition-timing-function.php
+transition 대한 설명 */
+.test3{
+transition-duration: 3s;
+transition-timing-function: cubic-bezier(0.3,0.3,1,0.5); 
+}
+.test3:hover{
+    transform: rotate(1080deg);
+    background-color: dodgerblue;
+}
+/* 변형 딜레이 (transition=delay) */
+.test4{
+    transition-delay: 2s;
+    border-radius: 50%
+}
+.test4:hover{
+    transform: translateX(500px) rotate(180deg);
+    
+}

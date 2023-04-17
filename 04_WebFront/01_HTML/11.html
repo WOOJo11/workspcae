@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11실습문제</title>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend>납품자 정보</legend>
+        <ol>
+            <li> <label for="name">납품자명 : </label> 
+            <input type="text">
+            </li><br>
+
+            <li>
+                <label for="email">email : </label> 
+                <input type="email">
+            </li><br>
+
+            <li>
+                <label for="homepage">홈페이지 : </label> 
+            <input type="text" value="https://">
+            </li><br>
+
+            <li>
+                <label for="region">지역 : </label> 
+            <input type="text" >
+            <select name="region" >
+                <option value="1">서울</option>
+                <option value="2">인천</option>
+                <option value="3">전라북도</option>
+                <option value="4">강원도</option>
+                <option value="5">전라남도</option>
+                <option value="6" selected>부산</option>
+            </select>
+            </li>
+        </ol>
+
+    </fieldset>
+    <fieldset>
+        <legend>납품 정보</legend>
+        <ul>
+            <li><label for="prouct">상품명</label>
+                <input type="text">
+            </li><br>
+        </ul>
+
+        <ul>
+            <li>
+                <label for="ea">납품수량 : </label>
+                <input type="number" min="100" placeholder="최소 100">
+
+            </li><br>
+        </ul>
+        <ul>
+
+            <li>
+                <label for="prouct">납품등급 :</label>
+                <input type="range" name="grade" min="d" max="S" step="1" value="5">
+
+            </li>
+        </ul>
+        <ul>
+            <li>    <label>기타사항</label> <textarea  cols="30" rows="10"></textarea>
+             
+            </li>
+        </ul>
+
+    </fieldset><br> 
+    <button>send message</button>
+
+
+
+</form>
+
+
+
+
+
+</body>
+</html>

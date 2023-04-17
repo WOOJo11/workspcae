@@ -1,0 +1,36 @@
+/* felx 예제에서 공통적으로 사용할 스타일 지정 */
+div{
+    border: 1px solid black;
+    box-sizing: border-box;
+
+}
+
+pre{
+    font-size: 1rem;
+    font-family: '고딕';
+
+}
+
+pre>b{
+    font-size: 1.5em;
+    color: red;
+}
+
+pre>i {
+    font-size: 1.5em;
+}
+
+.item{
+    width: 75px;
+    height:75px;
+}
+
+.item1{background-color: yellowgreen;}
+.item2{background-color: violet;}
+.item3{background-color: teal;}
+.item4{background-color: darkkhaki;}
+.item5{background-color: crimson;}
+.item6{background-color: aqua;}
+.item7{background-color: slateblue;}
+.item8{background-color: darkgreen;}
+.item9{background-color: linen;}

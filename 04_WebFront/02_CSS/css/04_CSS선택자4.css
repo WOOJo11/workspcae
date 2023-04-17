@@ -1,0 +1,68 @@
+/* 일반 구조 선택자 */
+/* :first-child -> 형제 관계의 요소 중 첫 번째 요소 */
+#test1 > p:first-child{
+    /* p태그의 형제를 모두 선택한 후 
+        그 중 첫 번째 요소가 p태그이면 선택 */
+    background-color: wheat;
+    color:blue;
+}
+/* :last-child -> 형제 관계의 요소 중 마지막 요소 */
+#test1>p:last-child{
+    background-color: violet;
+    
+}
+
+/* :nth-child(수열) -> 형제 관계의 요소 중 지정된 수열 번째 요소를 모두 선택 */
+/* 2번째 선택 */
+#test1 >p:nth-child(2){
+    background-color: tomato;
+}
+/* 홀수번째 요소 */
+#test1>p:nth-child(2n+1){
+font-size: 36px;
+font-style: italic; /* 이탤릭체로 변경 */
+}
+
+
+/* :nth-last-child(수열) ->형제 관계의 요소 중 뒤에서 부터 
+                                지정된 수열 번째 요소를 모두 선택 */
+#test1 >p:nth-last-child(2){
+    background-color: steelblue;
+}
+
+
+/* ******************************* */
+
+
+/* 형제 구조 선택자 */
+/*  :first-of-type -> 같이 선택된 형제 중 첫 번째 요소 */
+#test2 > p:first-of-type{
+    background-color: wheat;
+    color:blue;
+}
+/* :last-of-type -> 같이 선택된 형제 중 마지막 요소 */
+#test2>p:last-of-type{
+    background-color: violet;
+    
+}
+/* :nth-of-type -> 같이 선택된 형제 중 수열 번째 요소  */
+/* 2번째꺼  */
+#test2 >p:nth-of-type(2){
+    background-color: tomato;
+}
+/* 홀수 */
+#test2>p:nth-of-type(2n + 1){
+    font-size: 36px;
+    font-style: italic; /* 이탤릭체로 변경 */
+    }
+
+
+/* :nth-last-of-type -> 같이 선택된 형제 중 뒤에서 부터 수열 번째 요소 모두 선택 */
+#test2>p:nth-last-of-type(2)
+{background-color: darkcyan;
+
+}
+
+#test3>li:not(:nth-of-type(3n)){
+    background-color: pink;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>피자배달</title>
+</head>
+<body>
+    <form>
+        <label for="name">고객명 :</label>
+        <input type="text"><br><br>
+
+        <label for="phone">전화번호 :</label>
+        <input type="number"><br><br>
+
+        <label for="email">E-mail :</label>
+        <input type="email"><br><br>
+
+        <label for="pizzaselect">피자선택 : </label>
+        <select name="pizza" id="pizza">
+            <option value="basic" selected>피자를 선택해주세요</option>
+            <option value="1">치즈피자</option>
+            <option value="2" >불고기피자</option>
+            <option value="3" >포테이토피자</option>
+            <option value="4" >치킨피자</option>
+            <option value="5" >고구마피자</option>
+        </select>
+        
+        <fieldset>
+            <legend>피자 사이즈</legend>
+            <label for="size"></label>
+            <input type="radio" name="size" id="s"> Small <br><br>
+            
+            <label for="size"></label>
+            <input type="radio" name="size" id="m"> Medium <br><br>
+            
+            <label for="size"></label>
+            <input type="radio" name="size" id="l"> Large <br><br>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>토핑 선택</legend>
+            
+            <label for="topping"></label>
+            <input type="checkbox" > 베이컨<br><br>
+            <label for="topping"></label>
+            <input type="checkbox" > 치즈<br><br>
+            <label for="topping"></label>
+            <input type="checkbox" > 양파<br><br>
+            <label for="topping"></label>
+            <input type="checkbox" > 버섯<br><br>
+        </fieldset>
+        <br>
+        <label for="time">희망배송시간</label><input type="time" name="time" id="time">
+
+    <br><br>
+    <label for="other">배송시 요청사항</label> <textarea name="needs"cols="20" rows="2"></textarea>
+<br>    <br>
+<button>주문하기</button>
+
+
+
+        
+    </form>
+
+
+
+
+</body>
+</html>

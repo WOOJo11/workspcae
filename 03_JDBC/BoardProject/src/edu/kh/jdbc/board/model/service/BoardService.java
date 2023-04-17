@@ -1,17 +1,24 @@
 package edu.kh.jdbc.board.model.service;
 
-import static edu.kh.jdbc.common.JDBCTemplate.*;
+import static edu.kh.jdbc.common.JDBCTemplate.close;
+import static edu.kh.jdbc.common.JDBCTemplate.commit;
+import static edu.kh.jdbc.common.JDBCTemplate.getConnection;
+import static edu.kh.jdbc.common.JDBCTemplate.rollback;
+
 import java.sql.Connection;
 import java.util.List;
 
 import edu.kh.jdbc.board.model.dao.BoardDAO;
+import edu.kh.jdbc.board.model.dao.CommentDAO;
 import edu.kh.jdbc.board.model.dto.Board;
+import edu.kh.jdbc.board.model.dto.Comment;
 
 // 데이터 가공 , 트랜잭션 처리
 public class BoardService {
 
 	private BoardDAO dao = new BoardDAO();
-
+	private CommentDAO commentDao = new CommentDAO(); 
+	
 	public List<Board> selectAllBoard() throws Exception {
 		
 		Connection conn = getConnection();
@@ -23,6 +30,12 @@ public class BoardService {
 		return boardList;
 	}
 
+	/** 게시글 상세 조회
+	 * @param input
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
 	public Board selectBoard(int input, int memberNo) throws Exception {
 		
 		// 1) 커넥션 생성
@@ -31,6 +44,18 @@ public class BoardService {
 		Board board = dao.selectBoard(conn,input);
 		// 3) 게시글이 조회된 경우
 		if(board != null) {
+			
+			// 3-1 댓글
+			//****************************************************************************
+			// 해당 게시글에 대한 댓글 목록 조회 DAO호출
+			
+			List<Comment> commentList = commentDao.selecCommentList(conn,input); 
+			
+			board.setCommentList(commentList);
+			//****************************************************************************
+			
+			
+			
 			// 4) 조회수 증가
 			// 단, 게시글 작성자와 로그인한 회원이 다를 경우 증가 
 			if(board.getMemberNo()!= memberNo) {

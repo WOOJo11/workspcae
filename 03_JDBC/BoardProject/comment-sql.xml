@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<!--  댓글 목록조회 -->
+<entry key="selectCommentList">
+SELECT COMMENT_NO,COMMENT_CONTENT, MEMBER_NO ,MEMBER_NM, CREATE_DT
+ FROM "COMMENT"
+JOIN "MEMBER" USING(MEMBER_NO)
+WHERE DELETE_FL = 'N'
+AND BOARD_NO = ?
+ORDER BY COMMENT_NO
+</entry>
+	
+<entry key="insertComment">
+INSERT INTO "COMMENT"
+VALUES(?, ?, DEFAULT,DEFAULT, ?,? )
+
+</entry>	
+	
+	<entry key="nextCommentNo">
+	
+	SELECT SEQ_COMMENT_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<entry key="checkComment">
+SELECT COMMENT_NO,MEMBER_NO,BOARD_NO FROM "COMMENT" 
+JOIN "MEMBER" USING (MEMBER_NO)
+WHERE COMMENT_NO = ?
+
+	</entry>
+	
+	
+	
+	
+</properties>
+
+
+
+
+
+
