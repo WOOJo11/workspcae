@@ -1,0 +1,230 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin:0;
+
+}
+body{
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+
+
+/* 모두 작성후 삭제 */
+div,main,section,header,footer,article,nav,aside,form
+{border:1px solid black;} 
+
+/* 메인  */
+main{
+    min-width: 1104px;
+    min-height: 500px;
+    
+}
+/* 헤더 임시로 지정 */
+header{
+    height: 200px;
+    flex-basis: auto;
+    display: flex;
+    flex-direction: row;
+
+}
+
+/*  내용이 보여질 것들  */
+.mainView{
+    min-height: 800px;
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+}
+
+.leftArea{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: top 15px;
+    display: flex;
+    flex-direction: column;
+   
+
+}
+.leftArea-1{
+    margin-bottom: 10px;
+    display: flex;
+    flex-basis: auto;
+    width: 100%;
+    
+}
+
+.leftArea-1 li{
+    height: 50px;
+    
+
+}
+.leftArea-1 li:hover{
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+/* left side */
+#mainHome{
+    width: 20px;
+
+    filter: invert(38%) sepia(62%) saturate(468%) hue-rotate(178deg) brightness(93%) contrast(84%);
+}
+#myHome{
+    width: 20px;
+
+    
+}
+#friend{
+    width: 20px;
+    filter: invert(38%) sepia(62%) saturate(468%) hue-rotate(178deg) brightness(93%) contrast(84%);
+}
+#like{
+    width: 20px;
+    filter: invert(38%) sepia(62%) saturate(468%) hue-rotate(178deg) brightness(93%) contrast(84%);
+}
+
+
+
+.centerArea{
+
+    display: flex;
+
+    
+    /* flex 지정 시 기본 값 */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.centerArea-1{
+flex-basis: 30%;
+border: 1px solid rgba(0,0,0,0.3);
+padding: 2px;
+border-radius: 10px;
+display: flex;
+background-color: white;
+
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+#cArea-1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
+}
+
+
+
+/* 섹션 안 나누기  */
+#cArea-1>section:nth-child(1){
+    width: 15%;
+    height: 100%;
+}
+#cArea-1>section:nth-child(2){
+    width: 85%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/*  로고를 넣는거 */
+#cArea-1>section:first-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 로고 크기 */
+#myLogo{
+    width: 23px;
+    height: auto;
+}
+
+
+/* 나의 피드 아래꺼 */
+
+#cArea-2{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    border-top: 2px solid lightgray;
+   
+}
+
+#cArea-2 > ul {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    justify-content: space-around;
+    flex-direction: center;
+    align-items: center;
+
+}
+
+
+
+#cArea-2 button{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+
+    display: block;
+    text-align: center;
+    height: 100%;
+    
+
+}
+
+
+.centerArea-1 fieldset{
+    width: 380px;
+    border: 2px solid #455ba8;
+    padding: 2px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+#query{
+  width:100% ; 
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+
+
+
+
+.centerArea-2{
+flex-basis: 70%;
+
+border: 1px solid rgba(0,0,0,0.3);
+padding: 2px;
+border-radius: 10px;
+display: flex;
+margin-top: 10px;
+background-color: white;
+
+}
+
+
+
+
+
