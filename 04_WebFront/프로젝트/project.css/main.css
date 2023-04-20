@@ -45,7 +45,7 @@ header{
     margin-top: top 15px;
     display: flex;
     flex-direction: column;
-   
+    
 
 }
 .leftArea-1{
@@ -53,13 +53,16 @@ header{
     display: flex;
     flex-basis: auto;
     width: 100%;
+
     
 }
 
 .leftArea-1 li{
     height: 50px;
-    
-
+    list-style:none;
+    display: flex;
+    align-items: center;
+    justify-content: left;
 }
 .leftArea-1 li:hover{
     background-color: lightgray;
@@ -86,11 +89,15 @@ header{
     width: 20px;
     filter: invert(38%) sepia(62%) saturate(468%) hue-rotate(178deg) brightness(93%) contrast(84%);
 }
-#like{
+#likeLogo{
     width: 20px;
     filter: invert(38%) sepia(62%) saturate(468%) hue-rotate(178deg) brightness(93%) contrast(84%);
 }
 
+#searchLogo{
+    width: 20px;
+    filter: invert(56%) sepia(100%) saturate(559%) hue-rotate(70deg) brightness(98%) contrast(85%);
+}
 
 
 .centerArea{
@@ -120,6 +127,7 @@ align-items: center;
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 70%;
     
 }
 
@@ -147,7 +155,7 @@ align-items: center;
 }
 /* 로고 크기 */
 #myLogo{
-    width: 23px;
+    width: 37px;
     height: auto;
 }
 
@@ -155,12 +163,12 @@ align-items: center;
 /* 나의 피드 아래꺼 */
 
 #cArea-2{
-    height: 50px;
+    height: 30%;
     width: 100%;
     margin-top: 20px;
     background-color: white;
     border-top: 2px solid lightgray;
-   
+    
 }
 
 #cArea-2 > ul {
@@ -200,12 +208,12 @@ align-items: center;
     
 }
 #query{
-  width:100% ; 
-  border: none;
-  outline: none;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px;
+width:100% ; 
+border: none;
+outline: none;
+font-size: 18px;
+font-weight: bold;
+padding: 10px;
 }
 
 
@@ -222,9 +230,182 @@ display: flex;
 margin-top: 10px;
 background-color: white;
 
+display: flex;
+flex-direction: column;
+
+
+}
+
+/* 나의 게시글 상단 */
+.centerArea-2>section:nth-child(1){
+    width: 100%;
+    height: 10%;
+    
+    display: flex;
+    flex-direction: row;
+}
+/*  이름 색깔바꾸기 */
+.change{
+    font-weight: bold;
+    color: black;
+}
+
+/* 나의 게시글 상단 중 위 */
+#cTopArea1{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#cTopArea2{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+#cTopArea2>section:first-child{
+    width: 100%;
+    height: 60%;
+    
+}
+#cTopArea2 span{
+    display: inline-block;
+    margin-top: 5px;
+
+
+
+}
+
+#cTopArea2 a:first-child{
+    margin-left: 5px;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+#cTopArea2>section:last-child{
+    width: 100%;
+    height: 40%;
+}
+
+#cTopArea2 li{
+    list-style: none;
+    font-size: 11px;
+    text-decoration: none;
 }
 
 
+
+
+
+
+
+/* 나의 게시물 중단 */
+.centerArea-2>section:nth-child(2){
+    width: 100%;
+    height: 70%;
+}
+
+
+/* 나의 게시물 좋아요 댓글 등 */
+.centerArea-2>section:nth-child(3){
+    width: 100%;
+    height: 10%;
+}
+#like{
+    border-top: 2px solid lightgrey ;
+    width: 100%;
+    border-bottom: 2px solid lightgrey ;
+    margin-bottom: 7px;
+}
+#like>ul{
+    display: flex;
+    list-style: none;
+    height: 100%;
+    
+
+
+}
+
+#like>ul>li{
+    display: flex;
+    flex: 0 1 150px;    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#like a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px 0;
+    display: block;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+#like a:hover{
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+
+
+/*  reply 로고 */
+
+#replyLogo{
+    width: 20px;
+}
+
+/* 공유하기 로고 */
+#shareLogo{
+    width: 20px;
+}
+
+
+/* 나의 게시물 댓글 달기 */
+.centerArea-2>section:nth-child(4){
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+}
+
+#cBot>section:first-child{
+    
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#cBot>section:last-child{
+width: 90%;
+border: 1px solid #455ba8;
+border: 2px solid #455ba8;
+padding: 2px;
+border-radius: 5px;
+display: flex;
+justify-content: center;
+}
+#reply{
+    
+    width:100% ; 
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
 
 
 
