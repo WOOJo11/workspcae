@@ -74,12 +74,36 @@
       </dependency>   
    
    
+            <!-- Spring-security -->
+      <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-core</artifactId>
+          <version>5.7.1</version>
+      </dependency>
+      
+      <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-web</artifactId>
+          <version>5.7.1</version>
+      </dependency>
+      
+      <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-config</artifactId>
+          <version>5.7.1</version>
+      </dependency>
+   
+   
       <!-- Spring 모듈 -->
       <dependency>
          <groupId>org.springframework</groupId>
          <artifactId>spring-context</artifactId>
          <version>${org.springframework-version}</version>
          <exclusions>
+         
             <!-- Exclude Commons Logging in favor of SLF4j -->
             <exclusion>
                <groupId>commons-logging</groupId>
