@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+ <link rel="stylesheet" href="/resources/css/main-style.css">
+    <!-- font awesome 라이브러리 추가 -->
+    <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
+
 <header>
             <section>
                 <!-- 클릭시 메인 페이지로 이동하는 로고 -->
-                <a href="#">
+                <a href="/">
                     <img src="/resources/images/logo.jpg" alt="로고" id="homeLogo">
                 </a>
             </section>
@@ -55,7 +60,7 @@
         <input type="checkbox" id="headerMenuToggle">
 
         <div class="header-menu">
-        <a href="#">내 정보</a>
+        <a href="/myPage/info">내 정보</a>
         <a href="/member/logout">로그아웃</a>
         </div>
 
