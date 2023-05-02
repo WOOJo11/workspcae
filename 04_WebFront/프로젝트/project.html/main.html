@@ -19,11 +19,11 @@
             <div class="leftArea">
                 <div class="leftArea-1"> 
                     <ul>
-                        <li><a href="#"></a><img src="/images/home.png" alt="home" id="mainHome">홈</li>
-                        <li><a href="#"></a><img src="/images/KakaoTalk_20230411_123319455.png" alt="myHome" id="myHome">나의 피드</li>
-                        <li><a href="#"></a><img src="/images/friends.png" alt="friends" id="friend">친구</li>
-                        <li><a href="#"></a><img src="/images/like.png" alt="like" id="likeLogo">내가 저장한 피드</li>
-                        <li><a href="#"></a><img src="/images/free-icon-magnifying-glass-4254104.png" alt="search" id="searchLogo">초록 검색창</li>
+                        <li><img src="/images/home.png" alt="home" id="mainHome"><a href="#">홈</a></li>
+                        <li><img src="/images/KakaoTalk_20230411_123319455.png" alt="myHome" id="myHome"><a href="#">나의피드</a></li>
+                        <li><img src="/images/friends.png" alt="friends" id="friend"><a href="#">친구</a></li>
+                        <li><img src="/images/like.png" alt="like" id="likeLogo"><a href="#">내가 저장한 피드</a></li>
+                        <li><img src="/images/free-icon-magnifying-glass-4254104.png" alt="search" id="searchLogo"><a href="https://www.naver.com/" target="_blank">초록검색창</a></li>
                     </ul>
                 </div>
 
@@ -42,9 +42,13 @@
                         <section>
                             <form action="#" method="get">
                             <fieldset> 
-                                <input type="text" name="query" id="query" 
-                                placeholder="무슨 생각을 하고 계신가요?" autocomplete="off"> 
-                    
+                                <!-- <input type="text" name="query" id="query" 
+                                placeholder="무슨 생각을 하고 계신가요?" autocomplete="off">  -->
+                                <button id="think">고객님은 무슨생각을 하고 계신가요?</button>    
+                                <div id="myContent"></div>
+                                <div id="myContent-modal"><button id="btn1"> </button></div>
+                                    
+                                
     
                             </fieldset>
     
@@ -62,7 +66,6 @@
                         <li><button >기분/활동</button></li>
                     </ul>
                     </section>
-
 
                     
                 </div>
@@ -155,7 +158,7 @@
 
 
 
-
+    <script src="/프로젝트/project.js/main.js"></script>
     
 </body>
 </html>

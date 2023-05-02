@@ -17,7 +17,7 @@
 </head>
 <body>
     <main>
-       <jsp:include page="/WEB-INF/views/common/header.jsp"/>
+        <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
         
         <!-- 마이페이지 - 내 정보 -->
@@ -62,6 +62,8 @@
     </main>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script src="/resources/js/myPage/myPage.js"></script>
 
 </body>
 </html>
