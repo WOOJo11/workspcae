@@ -1,8 +1,11 @@
 package edu.kh.project.myPage.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.myPage.model.dao.AjaxDAO;
 
 @Service // 서비스임을 명시 + Bean 등록 
@@ -34,6 +37,20 @@ public class AjaxServiceImpl implements AjaxService {
 		
 		return dao.checkNickname(nickname);
 	}
+
+	@Override
+	public Member selectMember(String email) {
+		
+		return dao.selectMember(email);
+	}
+
+	@Override
+	public List<Member> selectMemberList(String input) {
+		
+		return dao.selectMemberList(input);
+	}
+	
+	
 	
 	
 	

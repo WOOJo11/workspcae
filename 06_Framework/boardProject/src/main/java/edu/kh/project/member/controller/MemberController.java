@@ -265,6 +265,7 @@ public class MemberController {
 		// 2) Model + @SessiongAttributes를 이용한 경우
 		// -> SessionStatus.setComplet() 사용
 
+		
 		status.setComplete();
 		// session.invalidate(); 호환이 완돼
 
