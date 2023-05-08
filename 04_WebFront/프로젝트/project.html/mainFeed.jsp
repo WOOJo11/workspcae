@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -102,7 +105,7 @@
                     <section id="like">
 
                         <ul>
-                            <li><a href="#"><img src="/images/mainLike.png" alt="like" id="likeLogo"> 좋아요</a></li>
+                            <li><a href="#"><img src="/images/like.png" alt="like" id="likeLogo"> 좋아요</a></li>
                             <li><a href="#reply"><img src="/images/free-icon-chat-bubble-6209512.png" alt="reply" id="replyLogo"> 댓글 달기</a></li>
                             <li><a href="#"><img src="/images/next.png" alt="share" id="shareLogo"> 공유하기</a></li>
                         </ul>

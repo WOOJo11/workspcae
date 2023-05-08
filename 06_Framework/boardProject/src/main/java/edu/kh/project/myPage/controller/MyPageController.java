@@ -117,7 +117,7 @@ public class MyPageController {
 			, @SessionAttribute("loginMember") Member loginMember
 			, RedirectAttributes ra ) {
 		
-	
+		
 		// 로그인한 회원의 번호 (어떤 회원의 정보인지 알아야함)
 		int memberNo = loginMember.getMemberNo();
 		
