@@ -61,6 +61,20 @@ public class BoardDAO {
 		return sqlSession.selectList("boardMapper.selectBoardList", boardCode, rowBounds);
 			
 	}
+
+
+
+	public Board selectBoard(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("boardMapper.selectBoard",map);
+	}
+
+
+
+	public int boardLikeCheck(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("boardMapper.boardLikeCheck",map);
+	}
 	
 
 	
