@@ -1,7 +1,11 @@
 package edu.kh.project.myPage.controller;
 
+import java.io.IOException;
+
+import javax.mail.Multipart;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.member.model.dto.Member;
@@ -205,7 +210,45 @@ public class MyPageController {
 	}
 	 
 	
+	/* MultipartFile : input type="file" 로 제출된 파일을 저장한 객체
+	 * 
+	 * [제공하는 메서드]
+	 * - transferTo() : 파일을 지정된 경로에 저장(메모리 -> HDD/SSD)
+	 * - getOriginalFileName() : 파일 원본 명
+	 * - getSize() : 파일 크기
+	 * 
+	 * 
+	 */
 	
+	// 프로필 이미지 수정
+	@PostMapping("/profile")
+	public String updateProfile(
+			@RequestParam("profileImage") MultipartFile profileImage // 업로드 파일
+			,@SessionAttribute("loginMember") Member loginMember
+			,RedirectAttributes ra // 전달 객체
+			, HttpSession session) throws IllegalStateException, IOException {
+		
+		// 웹 접근 경로
+		String webPath ="/resources/images/member/";
+		
+		// 실제 이미지 파일이 저장 되어야하는 서버 컴퓨터 경로
+		String filePath = session.getServletContext().getRealPath(webPath);
+		
+		// 프로필 이미지 수정 서비스 호출
+		int result = service.updateProfile(profileImage,webPath,filePath,loginMember);
+			
+		String message = null;
+		if(result > 0 ) message = "프로필 이미지가 변경되었습니다";
+		else message ="프로필 변경 실패";
+		
+		ra.addFlashAttribute("message",message);
+		
+		
+		
+		
+		
+		return "redirect:profile";
+	}
 	
 	
 }

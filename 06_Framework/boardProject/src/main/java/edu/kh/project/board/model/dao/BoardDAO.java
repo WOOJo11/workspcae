@@ -75,6 +75,37 @@ public class BoardDAO {
 		
 		return sqlSession.selectOne("boardMapper.boardLikeCheck",map);
 	}
+
+
+
+	public int insertBoardLike(Map<String, Integer> paramMap) {
+		
+		return sqlSession.insert("boardMapper.insertBoardLike",paramMap);
+	}
+
+
+
+	public int deleteBoardLike(Map<String, Integer> paramMap) {
+		
+		return sqlSession.delete("boardMapper.deleteBoardLike",paramMap);
+	}
+
+
+
+	public int countBoardLike(Integer boardNo) {
+		return sqlSession.selectOne("boardMapper.countBoardLike",boardNo);
+	}
+
+
+
+	public int updateReadCount(int boardNo) {
+		
+		return sqlSession.update("boardMapper.updateReadCount",boardNo);
+	}
+
+
+
+	
 	
 
 	

@@ -111,7 +111,7 @@ VALUES(SEQ_MEMBER_NO.NEXTVAL,#{memberEmail},#{memberPw},'${memberNickname}',
 	</insert>
 
 
-
+	
 
 
 

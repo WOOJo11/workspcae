@@ -86,8 +86,11 @@
 
             <div class="btn-area">
 
-				<!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
+				<!--   상태일 경우 글쓰기 버튼 노출 -->
+                <c:if test="${not empty loginMember}" >
                 <button id="insertBtn">글쓰기</button>                     
+                </c:if>
+                
 
             </div>
 
@@ -162,6 +165,8 @@
 
 
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script src="/resources/js/board/boardList.js"></script>
 
 </body>
 </html>

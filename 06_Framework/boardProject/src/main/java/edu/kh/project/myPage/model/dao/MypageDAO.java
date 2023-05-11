@@ -66,6 +66,13 @@ public class MypageDAO {
 		
 		return  sqlSession.update("myPageMapper.secession",memberNo);
 	}
+
+
+
+	public int updateProfileImage(Member loginMember) {
+		
+		return sqlSession.update("myPageMapper.updateProfileImage",loginMember);
+	}
 	
 
 	
