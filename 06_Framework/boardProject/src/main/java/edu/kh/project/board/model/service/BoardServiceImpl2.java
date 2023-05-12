@@ -3,7 +3,9 @@ package edu.kh.project.board.model.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import edu.kh.project.board.model.dao.BoardDAO2;
 import edu.kh.project.board.model.dto.Board;
 import edu.kh.project.board.model.dto.BoardImage;
 import edu.kh.project.board.model.exception.FileUploadException;
+import edu.kh.project.board.model.exception.ImageDeleteException;
 import edu.kh.project.common.utility.Util;
 
 @Service
@@ -130,15 +133,127 @@ public class BoardServiceImpl2 implements BoardService2 {
 			
 			
 			
-			
-			
-			
-			
 		}
 		
 				
 				return boardNo;
 	}
+
+	// 게시글 수정 서비스
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int boardUpdate(Board board, List<MultipartFile> images, String webPath, String filePath,
+			String deleteList) throws IllegalStateException, IOException {
+		
+		// 1. 게시글 제목 / 내용만 수정
+		// XSS 방지 처리
+		board.setBoardTitle(Util.XSSHandling(board.getBoardTitle()));
+		board.setBoardContent(Util.XSSHandling(board.getBoardContent()));
+		
+		// 2). DAO 호출
+		
+		int result = dao.boardUpdate(board);
+		
+		// 2. 게시글 부분이 수정 성공 했을 때
+		
+		if(result > 0) {
+			
+			if(!deleteList.equals("")) { // 삭제할 이미지가 있다면
+				
+				// 3. deleteList에 작성된 이미지 삭제
+				Map<String, Object> deleteMap = new HashMap<String, Object>();
+				deleteMap.put("boardNo", board.getBoardNo());
+				deleteMap.put("deleteList",deleteList);
+				
+				result = dao.imageDelete(deleteMap);
+				
+				if (result == 0) { // 이미지 삭제 실패 시 전체 롤백
+									// -> 예외 강제로 발생
+					throw new ImageDeleteException();
+					
+				}
+			}
+			
+		// 4. 새로 업로드된 이미지 분류 작업
+		
+		// images : 실제 파일이 담긴 List
+		// 			-> input type="file" 개수만큼 요소가 존재
+		// 			-> 제출된 파일이 없어서 MultipartFile 객체가 존재
+		
+		List<BoardImage> uploadList = new ArrayList<BoardImage>();
+		
+		for(int i=0; i<images.size(); i++) {
+			if(images.get(i).getSize()>0) { // 업로드된 파일이 있을 경우
+				
+				// BoardImage 객체를 만들어 값 세팅 후
+				// uploadList에 추가 
+				BoardImage img = new BoardImage();
+				
+				// img에 파일 정보를 담아서 uploadLIst에 추가
+				img.setImagePath(webPath); // 웹 접근 경로
+				img.setBoardNo(board.getBoardNo());
+				img.setImageOrder(i);
+				
+				// 파일 원본 이름
+				String fileName = images.get(i).getOriginalFilename();
+				
+				img.setImageOriginal(fileName);// 원본명
+				
+				img.setImageReName(Util.fileRename(fileName));
+				
+				
+				uploadList.add(img);
+				
+				// 오라클은 다중 UPDATE를 지원하지 않기 때문에
+				// 하나씩 UPDATE 수행
+				
+				result = dao.imageUpdate(img);
+				
+				if(result == 0) {
+					// 수정 실패 == DB에 이미지가 없었다
+					// -> 이미지를 삽입
+					
+					result = dao.imgInsert(img);
+				}
+			}
+		}
+		
+		// 5. uploadList에 있는 이미지들만 서버에 저장(transferTo())
+			if(!uploadList.isEmpty()) {
+               for(int i=0 ; i< uploadList.size(); i++) {
+                   
+                   int index = uploadList.get(i).getImageOrder();
+                   
+                   // 파일로 변환
+                   String rename = uploadList.get(i).getImageReName();
+                   
+                   images.get(index).transferTo( new File(filePath + rename)  );                    
+	                }
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		return result;
+	}
+
+	@Override
+	public int boardDelete(Board board) {
+		
+		return dao.boardDelete(board);
+	}
+
+
+	
+	
+	
+	
+	
 	
 	
 }

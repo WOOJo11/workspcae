@@ -69,7 +69,7 @@
 	
 	<!--  namespaces 탭에서 aop , tx체크 -->
 	<!-- transational 어노테이션 인식 활성화   -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	 <tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<!-- AOP Proxy를 이용한 관점제어 자동화  -->
 	<aop:aspectj-autoproxy />

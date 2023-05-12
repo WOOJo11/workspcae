@@ -261,7 +261,7 @@ public class BoardController {
 	}
 	
 	// 좋아요 처리
-	@Transactional(rollbackFor = Exception.class)
+	
 	@PostMapping("/like")
 	@ResponseBody // 반환되는 값이 비동기 요청한 곳으로 돌아가게 한다
 	public int like(@RequestBody Map<String, Integer> paramMap) {
