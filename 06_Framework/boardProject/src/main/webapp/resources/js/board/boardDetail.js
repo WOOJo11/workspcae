@@ -8,7 +8,7 @@ if(loginMemberNo==""){
     return;
 }
 
-let check; // 기존에 좋아요가 X(빈하트) : 0
+let check; // 기존에 좋아요가 X(빈하트) : 00
            // 좋아요 O : 1(꽉찬하트) 
 
 // contains("클래스명") : 클래스가 있으면 true, 없으면 false
