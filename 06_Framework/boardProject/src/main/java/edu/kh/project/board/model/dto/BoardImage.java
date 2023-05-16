@@ -15,4 +15,6 @@ public class BoardImage {
 	private int imageOrder;
 	private int boardNo;
 
+	
+	
 }
