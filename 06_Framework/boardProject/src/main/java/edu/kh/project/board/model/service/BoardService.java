@@ -36,7 +36,13 @@ public interface BoardService {
 	 */
 	int updateReadCount(int boardNo);
 
-	
+	/** 헤더 검색
+	 * @param query
+	 * @return list
+	 */
+	List<Map<String, Object>> headerSearch(String query);
+
+	List<String> selectImageList();
 	
 
 

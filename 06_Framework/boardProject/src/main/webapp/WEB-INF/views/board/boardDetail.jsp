@@ -123,7 +123,7 @@
                 
                 <c:forEach var="i" begin="${start}" end="${fn:length(board.imageList)}">
                 <div class="boardImg">
-                    <c:set var="path" 
+                    <c:set var="path"
                     value="${board.imageList[i].imagePath}${board.imageList[i].imageReName}"/>
                     <img src="${path}">
                     <a href="${path}" download="${board.imageList[i].imageOriginal}">다운로드</a>                

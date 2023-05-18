@@ -102,6 +102,18 @@ public class BoardServiceImpl implements BoardService {
 		return dao.updateReadCount(boardNo);
 	}
 	
+	 // 헤더 검색
+		@Override
+		public List<Map<String, Object>> headerSearch(String query) {
+			return dao.headerSearch(query);
+		}
+
+		// DB 이미지 파일 목록 조회
+		@Override
+		public List<String> selectImageList() {
+			// TODO Auto-generated method stub
+			return dao.selectImageList();
+		}
 	
 	
 	

@@ -103,6 +103,22 @@ public class BoardDAO {
 		return sqlSession.update("boardMapper.updateReadCount",boardNo);
 	}
 
+	/** 헤더 검색
+	 * @param query
+	 * @return list
+	 */
+	public List<Map<String, Object>> headerSearch(String query) {
+		return sqlSession.selectList("boardMapper.headerSearch", query);
+	}
+
+
+
+	/** 이미지 파일 목록 조회
+	 * @return
+	 */
+	public List<String> selectImageList() {
+		return sqlSession.selectList("boardMapper.selectImageListAll");
+	}
 
 
 	

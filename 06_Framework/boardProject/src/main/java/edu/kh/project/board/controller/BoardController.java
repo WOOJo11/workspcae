@@ -271,6 +271,13 @@ public class BoardController {
 		return service.like(paramMap);
 	}
 	
+	// 헤더 검색
+    @GetMapping(value="/headerSearch", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public List<Map<String, Object>> headerSearch(String query){
+    	return service.headerSearch(query);
+    }
+	
 	
 	
 	
