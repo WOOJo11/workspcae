@@ -138,6 +138,7 @@ public class BoardController {
 				// 좋아요 여부 확인 서비스 호출 
 				int result = service.boardLikeCheck(map);
 				
+				System.out.println(result);
 				// 누른적이 있다면
 				if(result>0) model.addAttribute("likeCheck","on");
 				

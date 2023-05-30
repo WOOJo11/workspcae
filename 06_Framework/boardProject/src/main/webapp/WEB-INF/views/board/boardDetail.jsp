@@ -46,7 +46,7 @@
                         </c:otherwise>
                     </c:choose>
 
-                    <span>${board.memberNickname}</span>
+                    <span>${board.memberNickname}</span> 
 
                     
                     <!-- 좋아요 하트 -->
@@ -64,7 +64,7 @@
                         <span>${board.likeCount}</span>
                     </span>
 
-                </div>
+                </div> 
 
                 <div class="board-info">
                     <p> <span>작성일</span> ${board.boardCreateDate}</p>     
@@ -208,3 +208,4 @@
 
 </body>
 </html>
+
