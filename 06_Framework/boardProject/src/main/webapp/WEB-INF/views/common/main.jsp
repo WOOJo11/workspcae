@@ -91,6 +91,7 @@
                 <section>
                     <input type="text" name="memberEmail" placeholder="이메일" 
                     autocomplete="off" value="${cookie.saveId.value}">
+                    <%-- value="${cookie.saveId.value}" --%>
                     <input type="password" name="memberPw" placeholder="비밀번호">
                 </section>
                 <section>
