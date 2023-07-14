@@ -340,7 +340,7 @@ function selectChattingFn() {
 				li.append(img,div);
 
 			}
-
+			
 			ul.append(li);
 			display.scrollTop = display.scrollHeight; // 스크롤 제일 밑으로
 		}

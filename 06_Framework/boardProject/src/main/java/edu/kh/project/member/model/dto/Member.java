@@ -22,4 +22,5 @@ public class Member {
 	private String memberDeleteFlag;
 	private int authority;
 	
+	
 }

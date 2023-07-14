@@ -196,7 +196,7 @@
     //    변수에 값이 대입되지 않는 문제가 발생할 수 있음!
     // 해결방법 : EL구문을 '',""문자열로 감싸는 것 
     //          -> EL값이 null이여도 "" 빈문자열로 출력
-    const loginMemberNo = "${loginMember.memberNo}";
+    let loginMemberNo = "${loginMember.memberNo}";
     console.log(boardNo);
     console.log(loginMemberNo);
 
